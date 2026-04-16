@@ -1,0 +1,103 @@
+@import url('./animations.css');
+
+html {
+    color-scheme: light;
+    background-color: var(--background-color);
+    color: var(--dark-color);
+    font-family: "Montserrat", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: color-mix(in srgb, var(--dark-color) 5%, transparent);
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+}
+
+.shadow {
+    position: fixed;
+    inset: 0;             
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 9;
+    
+    background: linear-gradient(
+        135deg, 
+        color-mix(in srgb, var(--primary-color) 50%, transparent) 0%, 
+        color-mix(in srgb, var(--background-color) 10%, transparent) 100%
+    );
+
+
+    /* valores iniciales fuera de pantalla */
+    --cx: -9999px;
+    --cy: -9999px;
+    --r: 50px;
+
+    /* máscara: transparent donde está el cursor, black el resto */
+    mask-image: radial-gradient(
+        circle var(--r) at var(--cx) var(--cy),
+        transparent 100%,
+        black 100%
+    );
+}
+
+.pulse{
+    position: fixed;
+    inset: 0;
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 8;
+    
+    background: linear-gradient(0deg, 
+        color-mix(in srgb, var(--primary-color) 50%, transparent) 0%, 
+        transparent 80%);
+    opacity: 0.3;
+    animation: pulse 8s infinite;
+}
+
+:root {
+    --primary-color: #ff8800;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --background-color: #ffffff;
+    --dark-color: #343a40;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #ff8800;
+        --secondary-color: #495057;
+        --success-color: #1e7e34;
+        --danger-color: #c82333;
+        --warning-color: #e0a800;
+        --info-color: #ff8800;
+        --light-color: #343a40;
+        --background-color: #000000;
+        --dark-color: #f8f9fa;
+    }
+}

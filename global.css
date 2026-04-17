@@ -76,6 +76,10 @@ body {
     animation: pulse 8s infinite;
 }
 
+.gallery-item{
+    display: none;
+}
+
 :root {
     --primary-color: #ff8800;
     --secondary-color: #6c757d;

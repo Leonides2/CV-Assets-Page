@@ -9,8 +9,7 @@ function syncShadow() {
   shadow.style.height = rect.height + 10 + 'px';
 }
 
-syncShadow();
-window.addEventListener('resize', syncShadow);
+
 
 document.addEventListener('mousemove', (e) => {
   const rect = container.getBoundingClientRect();
@@ -28,4 +27,5 @@ document.addEventListener('mouseleave', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   syncShadow();
+  window.addEventListener('resize', syncShadow);
 });

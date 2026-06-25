@@ -54,7 +54,7 @@ body {
     --cy: -9999px;
     --r: 50px;
 
-    /* máscara: transparent donde está el cursor, black el resto */
+    /* máscara: transparent donde está el cursor*/
     mask-image: radial-gradient(
         circle var(--r) at var(--cx) var(--cy),
         transparent 100%,
